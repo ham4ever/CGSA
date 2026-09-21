@@ -1,4 +1,4 @@
-﻿/* --- APP SHELL ---------------------------------------- */
+/* --- APP SHELL ---------------------------------------- */
 
 .app{display:flex;flex-direction:column;min-height:100dvh;padding-bottom:calc(var(--nav-h) + var(--safe-bottom))}
 
@@ -10,8 +10,9 @@
   position:sticky;top:0;z-index:100;
   background:var(--c-surface);
   border-bottom:1px solid var(--c-border);
-  padding:0 12px;
-  height:58px;
+  padding:var(--safe-top) 12px 0 12px;
+  height:var(--topbar-h);
+  box-sizing:border-box;
   display:flex;align-items:center;justify-content:space-between;gap:8px;
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
 }
@@ -25,7 +26,7 @@
 .topbar-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
 @media (max-width: 640px) {
   .topbar {
-    padding: 0 10px;
+    padding: var(--safe-top) 10px 0 10px;
     gap: 6px;
   }
   .topbar-logo {
@@ -589,13 +590,13 @@
 
 /* --- FLOOR DIVIDER --- */
 
-.floor-group { display:flex; flex-direction:column; gap:var(--s3); margin-bottom:var(--s4); scroll-margin-top: 125px; }
+.floor-group { display:flex; flex-direction:column; gap:var(--s3); margin-bottom:var(--s4); scroll-margin-top: calc(var(--topbar-h) + var(--banner-h) + 55px); }
 
 .floor-header {
 
   display:flex; align-items:center; justify-content:space-between; gap:var(--s3);
 
-  position:sticky; top:118px; z-index:80;
+  position:sticky; top:calc(var(--topbar-h) + var(--banner-h) + 48px); z-index:80;
 
   background:var(--c-bg);
 
@@ -757,7 +758,7 @@
 
 /* --- FLOOR JUMP BAR ---------------------------------- */
 
-.floor-jump-bar{   display:flex;   gap:var(--s2);   overflow-x:auto;   padding:var(--s2) var(--s4);   scrollbar-width:none;   border-bottom:1px solid var(--c-border);   background:var(--c-surface);   position:fixed;   top:58px;   left:0;   right:0;   z-index:90;   box-shadow:0 4px 12px rgba(0,0,0,.08); }
+.floor-jump-bar{   display:flex;   gap:var(--s2);   overflow-x:auto;   padding:var(--s2) var(--s4);   scrollbar-width:none;   border-bottom:1px solid var(--c-border);   background:var(--c-surface);   position:fixed;   top:calc(var(--topbar-h) + var(--banner-h));   left:0;   right:0;   z-index:90;   box-shadow:0 4px 12px rgba(0,0,0,.08); }
 
 .floor-jump-bar::-webkit-scrollbar{display:none}
 
@@ -843,7 +844,7 @@
 
 /* --- TASK BANNER & SWITCHER --- */
 .task-banner {
-  position: sticky; top: 58px; z-index: 95;
+  position: sticky; top: var(--topbar-h); z-index: 95;
   background: var(--c-surface); border-bottom: 1px solid var(--c-border);
   padding: 8px 16px; display: flex; justify-content: center;
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
